@@ -274,14 +274,20 @@ function parseTokensToAST(tokens) {
             }
             position++
         } else if (token.type === 'range') {
-            if (outputQueue.length < 2) throw new Error('Invalid range syntax')
-            const endCell = outputQueue.pop()
+            // Handle range: A1:B5
+            // The range token has just come after the first cell reference
+            if (outputQueue.length === 0) throw new Error('Invalid range syntax')
             const startCell = outputQueue.pop()
-            if (startCell.type !== 'cell' || endCell.type !== 'cell') {
-                throw new Error('Range must be between two cell references')
+            if (startCell.type !== 'cell') {
+                throw new Error('Range must start with a cell reference')
             }
+            // Peek at the next token - it should be a cell reference
+            if (position + 1 >= tokens.length || tokens[position + 1].type !== 'cell') {
+                throw new Error('Range must have end cell after colon')
+            }
+            const endCell = tokens[position + 1]
             outputQueue.push({ type: 'range', start: startCell.value, end: endCell.value })
-            position++
+            position += 2  // Skip both range token and end cell
         } else {
             position++
         }

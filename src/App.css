@@ -295,6 +295,224 @@ body {
   background: #f1f3f4;
 }
 
+/* Column header sorting & filtering */
+.col-header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  height: 100%;
+  width: 100%;
+  padding: 0 4px;
+}
+
+.col-label {
+  font-weight: 600;
+  color: #5f6368;
+  flex: 1;
+  text-align: left;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.col-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.sort-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #9aa0a6;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.sort-btn:hover {
+  color: #5f6368;
+  background: rgba(60, 64, 67, 0.08);
+  opacity: 0.8;
+}
+
+.sort-btn:active {
+  background: rgba(60, 64, 67, 0.12);
+}
+
+.sort-btn.active {
+  color: #1f73e6;
+  background: rgba(31, 115, 230, 0.12);
+}
+
+.sort-btn.active:hover {
+  background: rgba(31, 115, 230, 0.16);
+}
+
+.sort-btn svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-dropdown-wrapper {
+  position: relative;
+  display: inline-flex;
+  z-index: 100;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #9aa0a6;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  line-height: 1;
+}
+
+.filter-btn:hover {
+  background-color: rgba(60, 64, 67, 0.08);
+  color: #5f6368;
+  opacity: 0.8;
+}
+
+.filter-btn:active {
+  background: rgba(60, 64, 67, 0.12);
+}
+
+.filter-btn.active {
+  color: #1f73e6;
+  background-color: rgba(31, 115, 230, 0.12);
+}
+
+.filter-btn.active:hover {
+  background-color: rgba(31, 115, 230, 0.16);
+}
+
+.filter-btn svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-menu {
+  position: fixed;
+  background: white;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  min-width: 240px;
+  max-width: 280px;
+  max-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-controls {
+  padding: 8px;
+  border-bottom: 1px solid #dadce0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.filter-clear-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  background: #f8f9fa;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.filter-clear-btn:hover {
+  background: #e8e8e8;
+  border-color: #bdc1c4;
+}
+
+.filter-values {
+  overflow-y: auto;
+  max-height: 280px;
+  padding: 4px 0;
+  flex: 1;
+}
+
+.filter-empty {
+  padding: 12px;
+  color: #9aa0a6;
+  text-align: center;
+  font-size: 13px;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease;
+  gap: 8px;
+}
+
+.filter-checkbox:hover {
+  background-color: #f8f9fa;
+}
+
+.filter-checkbox input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: #1f73e6;
+  flex-shrink: 0;
+}
+
+.filter-checkbox span {
+  font-size: 13px;
+  color: #202124;
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Scrollbar styling for filter values */
+.filter-values::-webkit-scrollbar {
+  width: 8px;
+}
+
+.filter-values::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.filter-values::-webkit-scrollbar-thumb {
+  background: #dadce0;
+  border-radius: 4px;
+}
+
+.filter-values::-webkit-scrollbar-thumb:hover {
+  background: #bdc1c4;
+}
+
 /* Row header */
 .row-header {
   background: #f8f9fa;
@@ -333,9 +551,10 @@ body {
 }
 
 .cell.selected {
-  border: 2px solid #1a73e8;
-  z-index: 1;
-  box-shadow: 0 0 0 1px rgba(26, 115, 232, 0.2);
+  outline: 2px solid #2563eb;
+  outline-offset: -2px;
+  position: relative;
+  z-index: 10;
 }
 
 .cell-display {
