@@ -104,26 +104,32 @@ SpreadsheetApp/
 - Sorts based on computed values (formula results)
 - View-layer filtering only (original data intact)
 
-✅ **Excel-like Filtering**
+**Excel-like Filtering**
 
 - Interactive filter dropdowns in column headers
 - Multi-column filtering support
 - Rows are hidden, not deleted (preserves original data)
 
-✅ **Copy & Paste**
+**Copy & Paste**
 
 - Copy cells with `Ctrl+C` (copies computed values)
 - Paste multi-row/multi-column data with `Ctrl+V`
 - Supports pasting from Excel and Google Sheets
 - Paste operations are fully undoable with `Ctrl+Z`
 
-✅ **Local Storage Persistence**
+**Local Storage Persistence**
 
 - Automatic save every 500ms (debounced)
 - Full spreadsheet restoration on page refresh
 - Persists cell values, formulas, styles, and grid dimensions
 - Graceful error handling for storage quota exceeded
 - Auto-recovery from corrupted data
+
+## Video Walkthrough
+
+Watch the 3–5 minute walkthrough explaining the implementation and features:
+
+🔗 **Loom Video:** [https://www.loom.com/share/9642f3a7eedb42639930f40a3b34b3f5](https://www.loom.com/share/9642f3a7eedb42639930f40a3b34b3f5)
 
 ## Available Scripts
 
