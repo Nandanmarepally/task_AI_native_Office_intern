@@ -15,8 +15,8 @@ Before you begin, ensure you have the following installed on your system:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/tauhidst07/spreadhsheet.git
-cd SpreadsheetApp
+git clone https://github.com/Nandanmarepally/task_AI_native_Office_intern.git
+cd task_AI_native_Office_intern
 ```
 
 ### 2. Install Dependencies
@@ -96,28 +96,60 @@ SpreadsheetApp/
 - **ESLint** - JavaScript linting utility
 - **CSS** - Styling and layout
 
+## Features Implemented
+
+**Column Sorting**
+
+- 3-state sorting: Ascending → Descending → None
+- Sorts based on computed values (formula results)
+- View-layer filtering only (original data intact)
+
+✅ **Excel-like Filtering**
+
+- Interactive filter dropdowns in column headers
+- Multi-column filtering support
+- Rows are hidden, not deleted (preserves original data)
+
+✅ **Copy & Paste**
+
+- Copy cells with `Ctrl+C` (copies computed values)
+- Paste multi-row/multi-column data with `Ctrl+V`
+- Supports pasting from Excel and Google Sheets
+- Paste operations are fully undoable with `Ctrl+Z`
+
+✅ **Local Storage Persistence**
+
+- Automatic save every 500ms (debounced)
+- Full spreadsheet restoration on page refresh
+- Persists cell values, formulas, styles, and grid dimensions
+- Graceful error handling for storage quota exceeded
+- Auto-recovery from corrupted data
+
 ## Available Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start the development server with hot reload |
-| `npm run build` | Build the application for production |
-| `npm run preview` | Preview the production build locally |
-| `npm run lint` | Run ESLint to check code quality |
+| Command           | Description                                  |
+| ----------------- | -------------------------------------------- |
+| `npm run dev`     | Start the development server with hot reload |
+| `npm run build`   | Build the application for production         |
+| `npm run preview` | Preview the production build locally         |
+| `npm run lint`    | Run ESLint to check code quality             |
 
 ## Development Workflow
 
 1. Create a new branch for your feature:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
 2. Make your changes and ensure the code passes linting:
+
    ```bash
    npm run lint
    ```
 
 3. Commit your changes:
+
    ```bash
    git commit -m "Add description of your changes"
    ```
@@ -136,18 +168,19 @@ This application works on all modern browsers that support ES2020+ JavaScript:
 ## Troubleshooting
 
 ### Dependencies won't install
+
 - Clear npm cache: `npm cache clean --force`
 - Delete `node_modules` and `package-lock.json`, then reinstall: `rm -rf node_modules package-lock.json && npm install`
 
 ### Port 5173 already in use
+
 - The dev server will automatically try the next available port
 - Or specify a custom port: `npm run dev -- --port 3000`
 
 ### Build fails
+
 - Ensure all dependencies are installed: `npm install`
 - Clear any build cache: `rm -rf dist`
 - Try rebuilding: `npm run build`
-
-
 
 # task_AI_native_Office_intern
